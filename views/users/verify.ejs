@@ -18,7 +18,7 @@
       const video = document.getElementById('video')
       const canvas = document.getElementById('canvas')
       const captureBtn = document.getElementById('capture-btn')
-      const backendUrl = 'http://54.174.143.77:443/upload-photo/<%=id%>'
+      const backendUrl = 'http://54.174.143.77:80/upload-photo/<%=id%>'
 
       navigator.mediaDevices.getUserMedia({ video: true }).then((stream) => {
         video.srcObject = stream
@@ -39,7 +39,7 @@
         fetch(backendUrl, { method: 'POST', body: formData })
           .then((response) => {
             if (response.status == 200) {
-              window.location.href = "http://54.174.143.77:443/dashboard";
+              window.location.href = "http://54.174.143.77:80/dashboard";
             } else {
               console.log('Match not found');
             }
